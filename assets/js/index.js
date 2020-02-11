@@ -5,6 +5,10 @@
     const cancellog = document.getElementById('cancelLogin');
     const cancelReg = document.getElementById('cancelRegister')
 
+    //cookies
+    $('.modal').modal('show');
+
+    //boutons
     login.addEventListener('click', ()=>{
         document.getElementById("logreg-forms").style.display = "block";
         document.getElementById("registerForm").style.display = "none";
