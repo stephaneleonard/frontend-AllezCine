@@ -1,21 +1,96 @@
 #left-socials {
+  position: fixed;
+  line-height: 30px;
+  left: 0px;
+  top: 70vh;
   #Twitter {
-    position: fixed;
-    height: 30px;
-    line-height: 30px;
-    left: 0px;
-    top: 70vh;
-    display: flex;
-    padding-right: 10px;
-    background-color: #1DA1F2;
-    color: white;
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
-
-    .fa-twitter{
-        background-color: white;
-        color: black;
+    label {
+      background-color: #1da1f2;
+      border-top-right-radius: 1em;
+      border-bottom-right-radius: 1em;
+      height: 30px;
+      position: relative;
+      left: -60px;
+      transition: left 0.4s;
     }
 
+    p {
+      padding-left: 10px;
+      display: inline;
+    }
+
+    #twit {
+      padding: 0 10px;
+      color: black;
+      line-height: 30px;
+    }
+    .visually-hidden {
+      position: absolute;
+      left: -100vw;
+    }
+    #toggle:checked ~ label {
+      left: 0px;
+    }
+  }
+
+  #Facebook {
+    label {
+      background-color: #4267B2;
+      border-top-right-radius: 1em;
+      border-bottom-right-radius: 1em;
+      height: 30px;
+      position: relative;
+      left: -82px;
+      transition: left 0.4s;
+    }
+
+    p {
+      padding-left: 10px;
+      display: inline;
+    }
+
+    #faceb{
+      padding: 0 10px;
+      color: black;
+      line-height: 30px;
+    }
+    .visually-hidden {
+      position: absolute;
+      left: -100vw;
+    }
+    #toggle2:checked ~ label {
+      left: 0px;
+    }
+  }
+
+  #Dribble {
+    label {
+      background-color: #EA4C89;
+      border-top-right-radius: 1em;
+      border-bottom-right-radius: 1em;
+      height: 30px;
+      position: relative;
+      left: -66px;
+      transition: left 0.4s;
+      z-index: 999;
+    }
+
+    p {
+      padding-left: 10px;
+      display: inline;
+    }
+
+    #dribl{
+      padding: 0 10px;
+      color: black;
+      line-height: 30px;
+    }
+    .visually-hidden {
+      position: absolute;
+      left: -100vw;
+    }
+    #toggle3:checked ~ label {
+      left: 0px;
+    }
   }
 }
