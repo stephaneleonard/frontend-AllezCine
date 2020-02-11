@@ -116,12 +116,13 @@
 
               for(let i=0; i<5;i++){
                 let number = Math.round(Math.random()*19)
+                
                 const html = document.createElement("div");
-                html.classList = 'card col-lg-2 col-md-2 col-sm-6 col-xs-12';
+                html.classList = 'card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12';
                 html.style = 'width: 18rem';
                 html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
                 <div class="card-body"> <h5 class="card-title">${array[number].title}</h5> 
-                <p class="card-text">${array[number].release_date.split('-').splice(0,1)}</p><span></span> </div>`
+                <p class="card-text">${array[number].release_date.slice(0,4)}</p><span></span> </div>`
                 document.getElementById("movie").appendChild(html);
               }
           }else{
