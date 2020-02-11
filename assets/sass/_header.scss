@@ -1,4 +1,8 @@
 header {
+  .nav-colored {
+    background-color: rgba(0, 0, 0, 0.719);
+  }
+
   .navbar {
     position: fixed;
     width: 100%;
@@ -9,12 +13,6 @@ header {
       font-size: 200%;
       font-weight: bolder;
       margin-right: 2em;
-    }
-    .nav-colored {
-      background-color: rgb(0, 0, 0);
-    }
-    .nav-transparent {
-      background-color: transparent;
     }
     #nav-search {
       background-color: rgba(0, 0, 0, 0.568);
