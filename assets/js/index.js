@@ -80,28 +80,24 @@
   //bouton login et register
   const login = document.getElementById("login");
   const register = document.getElementById("register");
-  const cancellog = document.getElementById("cancelLogin");
-  const cancelReg = document.getElementById("cancelRegister");
 
   //cookies
-  $(".modal").modal("show");
-
-  //boutons
-  login.addEventListener("click", () => {
-    document.getElementById("logreg-forms").style.display = "block";
-    document.getElementById("registerForm").style.display = "none";
-  });
-  register.addEventListener("click", () => {
-    document.getElementById("registerForm").style.display = "flex";
-    document.getElementById("logreg-forms").style.display = "none";
-  });
-  cancellog.addEventListener("click", () => {
-    document.getElementById("logreg-forms").style.display = "none";
-  });
-  cancelReg.addEventListener("click", () => {
-    document.getElementById("registerForm").style.display = "none";
-  });
-
+  function cookies(){
+    $("#cookies").modal("show");
+  }
+  function formulaire(){
+    $("#myModalLogin").modal("show")
+    $("#myModalRegister").modal("hide")
+  }
+  function formulaireRegister(){
+    $("#myModalRegister").modal("show")
+    $("#myModalLogin").modal("hide")
+    
+  }
+  login.addEventListener("click",formulaire);
+  register.addEventListener("click",formulaireRegister);
+  document.getElementById('backToRegister').addEventListener('click',formulaireRegister)
+  
   //Section featured
 
   /*
@@ -164,13 +160,24 @@
 
         for(let i=0; i<5;i++){
           let number = Math.round(Math.random()*19)
-          
+          let spanGender = "";
+          genre.forEach(gen=>{
+                if(gen.id==array[number].genre_ids[0])
+                spanGender= gen.name
+              })
+          array[number].genre_ids[0]
+          //   array[number].genre_ids.forEach(identity=>{
+          //   genre.forEach(gen=>{
+          //     if(gen.id==identity)
+          //     spanGender= gen.name
+          //   })
+          // })
           const html = document.createElement("div");
           html.classList = 'card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12 mx-auto';
           html.style = 'width: 18rem';
           html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
           <div class="card-body"> <h5 class="card-title">${array[number].title}</h5> 
-          <p class="card-text">${array[number].release_date.slice(0,4)}</p><span></span> </div>`
+          <p class="card-text ml-2">${array[number].release_date.slice(0,4)}</span><span class="ml-4">${spanGender}</span></p> </div>`
           document.getElementById("movie").appendChild(html);
         }
     }else{
@@ -178,4 +185,19 @@
     }
 }
 MOVIES();
+cookies();
+/*************************************ici commence la partie contact*******************/
+  document.getElementById("sendMessage").addEventListener('click',()=>{
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let emailContact = document.getElementById("emailContact").value;
+    let subject = document.getElementById("subject").value;
+    let textMessage = document.getElementById("textMessage").value;
+
+    if(!firstName||!lastName||!emailContact||!subject||!textMessage){
+      alert('you need to complete each boxes')
+    }else{
+      alert("resume"+"\n"+`${firstName} ${lastName}`+"\n"+`${emailContact} ${subject}`+"\n"+`${textMessage}`)
+    }
+  })
 })();

@@ -147,108 +147,113 @@
                 </div>
             </section>
         </div>
-
-    </main>
-
-
-    <!--formulaire login-->
-    <div id="logreg-forms">
-        <form class="form-signin">
-            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
-            <div class="social-login">
-                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign
-                        in with Facebook</span> </button>
-                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign
-                        in with Google+</span> </button>
-            </div>
-            <p style="text-align:center"> OR </p>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required=""
-                autofocus="">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-
-            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
-            <a href="#" id="forgot_pswd">Forgot password?</a>
-            <hr>
-            <!-- <p>Don't have an account!</p>  -->
-            <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i>
-                Sign up New Account</button>
-            <button id="cancelLogin" class="btn btn-primary btn-block" type="button">cancel</button>
-        </form>
-
-        <form action="/reset/password/" class="form-reset">
-            <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required=""
-                autofocus="">
-            <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
-            <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
-        </form>
-
-        <form action="/signup/" class="form-signup">
-            <div class="social-login">
-                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign
-                        up with Facebook</span> </button>
-            </div>
-            <div class="social-login">
-                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign
-                        up with Google+</span> </button>
-            </div>
-
-            <p style="text-align:center">OR</p>
-
-            <input type="text" id="user-name" class="form-control" placeholder="Full name" required="" autofocus="">
-            <input type="email" id="user-email" class="form-control" placeholder="Email address" required autofocus="">
-            <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
-            <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required
-                autofocus="">
-
-            <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
-            <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
-        </form>
-        <br>
-    </div>
-
-    <!--formulaire Register-->
-    <div class="myform form" id="registerForm">
-        <div class="logo mb-3">
-            <div class="col-md-12 text-center">
-                <h1>Sign up</h1>
-            </div>
+        <div class="container">
+            <section class="contact">
+                <h2>CONTACT US</h2>
+                <form>
+                    <div class="form-row">
+                      <div class="col">
+                        <input id="firstName" type="text" class="form-control mb-2 mr-2" placeholder="First name">
+                      </div>
+                      <div class="col">
+                        <input id="lastName" type="text" class="form-control mb-2" placeholder="Last name">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                          <input id="emailContact" type="text" class="form-control mb-2 mr-2" placeholder="email@gmail.com">
+                        </div>
+                        <div class="col">
+                          <input id="subject" type="text" class="form-control mb-2" placeholder="subject">
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col">
+                          <textarea id="textMessage" name="area" class="form-control mt-2" rows="10" placeholder="Your message"></textarea>
+                          <button class="btn btn-danger" type="button" id="sendMessage">SEND MESSAGE</button>
+                        </div>
+                        
+                      </div>
+                  </form>
+            </section>
         </div>
-        <form action="" method="post" name="login">
-            <div class="form-group">
-                <input type="text" name="user-name" class="form-control" id="username" placeholder="Enter username">
-                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
-                    placeholder="Enter email">
-                <input type="password" name="password" id="password" class="form-control" aria-describedby="emailHelp"
-                    placeholder="Enter Password">
-                <input type="password" name="password" id="repeatPassword" class="form-control"
-                    aria-describedby="emailHelp" placeholder="Comfirm Password">
+    </main>
+    <!-----------------------------------------login with modal---------------------------------------------------->
+    <div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">LOGIN</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="form-group">
-                <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
-            </div>
-            <div class="col-md-12 text-center ">
-                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Sign up</button>
-            </div>
-            <div class="col-md-12 ">
-                <div class="login-or">
-                    <hr class="hr-or">
-                    <span class="span-or">or</span>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="pseudo-name" class="col-form-label">Pseudo:</label>
+                  <input type="text" class="form-control" id="pseudo-name">
                 </div>
+                <div class="form-group">
+                  <label for="passwordLogin" class="col-form-label">password:</label>
+                  <input type="password" class="form-control" id="passwordLogin"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="stayConnect" class="col-form-label">Stay connected </label>
+                    <input class="mr-5"type="checkbox" id="stayConnect">
+                    <label class="ml-5"for="signUp"> Not account yet?</label>
+                    <button id="backToRegister" type="button" class="btn btn-primary ml-3">Sign UP</button>
+                </div>
+              </form>
             </div>
-            <div class="col-md-12 mb-3">
-                <p class="text-center">
-                    <a href="javascript:void();" class="google btn mybtn"><i class="fab fa-google-plus-g">
-                        </i> Signup using Google
-                    </a>
-                </p>
-                <button id="cancelRegister" type="button"
-                    class=" btn btn-block mybtn btn-primary tx-tfm">cancel</button>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">login</button>
             </div>
-        </form>
+          </div>
+        </div>
+      </div>
+      <!-----------------------------------------register with modal---------------------------------------------------->
+ <div class="modal fade" id="myModalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalTitleReg">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="pseudo-name-reg" class="col-form-label">Username:</label>
+              <input type="text" class="form-control" id="pseudo-name-reg">
+            </div>
+            <div class="form-group">
+              <label for="passwordRegister" class="col-form-label">password:</label>
+              <input type="password" class="form-control" id="passwordRegister"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="repeatRegister" class="col-form-label">comfirm password:</label>
+                <input type="password" class="form-control" id="repeatRegister"></textarea>
+              </div>
+            <div class="form-group">
+                <label for="emailRegister" class="col-form-label">Email</label>
+                <input class="form-control"type="email" id="emailRegister:" placeholder="exemple@gmail.com">
+            </div>
+            <label for="terms" class="col-form-label">By signing, you agree with <a href="#">terms and conditions</a></label>
+            <p><a href="#">forgot password?</a></p>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Sign up</button>
+        </div>
+      </div>
     </div>
-
+  </div>
     <!--coockies-->
-    <!-- <div class="modal" tabindex="-1" role="dialog">
+    <!-- <div id="cookies" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -273,8 +278,6 @@
         </div>
     </div> -->
 
-
-    <!--Section Movies-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
