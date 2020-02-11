@@ -72,5 +72,22 @@ header {
   }
   #login-bar {
     height: 50px;
+    display: flex;
+  }
+  #phoneNumber{
+    a{color:black};
+    margin-left: 180px;
+    line-height: 50px;
+    
+  }
+  #login,#register{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: black;
+  }
+  #login{
+    margin-left: 25px;
+    margin-right: 5px;
   }
 }
