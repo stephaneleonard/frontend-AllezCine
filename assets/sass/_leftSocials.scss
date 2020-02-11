@@ -1,0 +1,21 @@
+#left-socials {
+  #Twitter {
+    position: fixed;
+    height: 30px;
+    line-height: 30px;
+    left: 0px;
+    top: 70vh;
+    display: flex;
+    padding-right: 10px;
+    background-color: #1DA1F2;
+    color: white;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    .fa-twitter{
+        background-color: white;
+        color: black;
+    }
+
+  }
+}
