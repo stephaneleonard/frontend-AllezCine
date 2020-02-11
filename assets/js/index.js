@@ -109,26 +109,45 @@
    *  input: nothing
    * output: nothing
    */
-  const displayFeatured = async () => {
+  const displayFeatured = async cat => {
+    const row = document.getElementById("featuredRow");
+    row.innerHTML = "";
     const response = await fetch(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US&page=1"
+      "https://api.themoviedb.org/3/movie/popular?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US&page=1"
     );
     const data = await response.json();
     const arr = await data.results;
-    const filteredArr = filterFromCategories(arr, 35);
+    const filteredArr = cat ? filterFromCategories(arr, cat) : arr;
     console.log(filteredArr);
     //display them
-    filteredArr.forEach(e => {
-      const html = document.createElement("div");
-      html.classList = "card  defaultCard col-lg-2 col-md-6 col-sm-6 col-xs-12 mx-auto";
-      html.style = "width: 18rem;";
-      html.innerHTML = `
+    filteredArr.forEach((e, i) => {
+      if (i < 12) {
+        const html = document.createElement("div");
+        html.classList =
+          "card  defaultCard col-lg-2 col-md-6 col-sm-6 col-xs-12 mx-auto";
+        html.style = "width: 18rem;";
+        html.id = `featured-${e.id}`;
+        html.innerHTML = `
       <img src="${`https://image.tmdb.org/t/p/w500/${e.poster_path}`}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${e.title}</h5>
-        <p class="card-text">${e.release_date.slice(0,4)}</p>
+        <p class="card-text">${e.release_date.slice(0, 4)}</p>
       </div>`;
-      document.getElementById("featuredRow").appendChild(html);
+        document.getElementById("featuredRow").appendChild(html);
+      } else {
+        const html = document.createElement("div");
+        html.classList =
+          "card  defaultCard col-lg-2 col-md-6 col-sm-6 col-xs-12 mx-auto hidden";
+        html.style = "width: 18rem;";
+        html.id = `featured-${e.id}`;
+        html.innerHTML = `
+      <img src="${`https://image.tmdb.org/t/p/w500/${e.poster_path}`}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${e.title}</h5>
+        <p class="card-text">${e.release_date.slice(0, 4)}</p>
+      </div>`;
+        document.getElementById("featuredRow").appendChild(html);
+      }
     });
   };
 
@@ -139,8 +158,28 @@
   };
 
   // call all function to display data
-  displayFeatured();
+  displayFeatured(0);
 
+  //add event listeners for change of categories
+  document.getElementById("btn-all").addEventListener("click", () => {
+    displayFeatured(0);
+  });
+  document.getElementById("btn-action").addEventListener("click", () => {
+    displayFeatured(28);
+  });
+  document.getElementById("btn-crime").addEventListener("click", () => {
+    displayFeatured(80);
+  });
+
+  //add Event Listener for the moreOrLess Button
+  document.getElementById("moreOrLess").addEventListener("click", () => {
+    Array.from(document.getElementById("featuredRow").childNodes).forEach(
+      (el, i) => {
+        if (i >= 12) el.classList.toggle("hidden");
+      }
+    );
+  });
+  // Add eventListener to the featured Films
   // Navbar scroll mechanics
 
   var myNav = document.getElementById("myNav");
@@ -155,27 +194,35 @@
     }
   };
   //**********************Pierre SECTION************************************
-  const MOVIES = async function(){
-    let data = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1')
-    if(data.ok){
-        const dat = await data.json();
-        const array = await dat.results;
-        console.log(array);
+  const MOVIES = async function() {
+    let data = await fetch(
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1"
+    );
+    if (data.ok) {
+      const dat = await data.json();
+      const array = await dat.results;
+      console.log(array);
 
-        for(let i=0; i<5;i++){
-          let number = Math.round(Math.random()*19)
-          
-          const html = document.createElement("div");
-          html.classList = 'card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12 mx-auto';
-          html.style = 'width: 18rem';
-          html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
-          <div class="card-body"> <h5 class="card-title">${array[number].title}</h5> 
-          <p class="card-text">${array[number].release_date.slice(0,4)}</p><span></span> </div>`
-          document.getElementById("movie").appendChild(html);
-        }
-    }else{
-        console.error(dat.status);
+      for (let i = 0; i < 5; i++) {
+        let number = Math.round(Math.random() * 19);
+
+        const html = document.createElement("div");
+        html.classList =
+          "card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12 mx-auto";
+        html.style = "width: 18rem";
+        html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
+          <div class="card-body"> <h5 class="card-title">${
+            array[number].title
+          }</h5> 
+          <p class="card-text">${array[number].release_date.slice(
+            0,
+            4
+          )}</p><span></span> </div>`;
+        document.getElementById("movie").appendChild(html);
+      }
+    } else {
+      console.error(dat.status);
     }
-}
-MOVIES();
+  };
+  MOVIES();
 })();

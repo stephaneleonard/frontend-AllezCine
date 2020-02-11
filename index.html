@@ -135,16 +135,28 @@
 
         </div>
         <div class="container">
-        <div id="movie" class = "row">
-    
-        </div>
+            <div id="movie" class="row">
+
+            </div>
         </div>
         <div class="container">
             <section class="featured">
                 <h2>FEATURED MOVIES</h2>
-                <div  id='featuredRow' class="row">
-                    
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input type="radio" name="options" id="btn-all" checked> All
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="btn-action"> Action
+                    </label>
+                    <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="btn-crime"> Crime
+                    </label>
                 </div>
+                <div id='featuredRow' class="row">
+
+                </div>
+                <button  id='moreOrLess' type="button" class="btn btn-danger center">More</button>
             </section>
         </div>
 
@@ -172,7 +184,7 @@
             <!-- <p>Don't have an account!</p>  -->
             <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i>
                 Sign up New Account</button>
-            <button id="cancelLogin" class="btn btn-primary btn-block" type="button">cancel</button>
+            <button id="cancelLogin" class="btn btn-primary center-text" type="button">cancel</button>
         </form>
 
         <form action="/reset/password/" class="form-reset">
