@@ -102,7 +102,7 @@
     document.getElementById("registerForm").style.display = "none";
   });
 
-  //Section featured
+  //**********************FEATURED SECTION************************************
 
   /*
    * Display the featured movie with a category defined
@@ -180,7 +180,7 @@
     );
   });
 
-  // Navbar scroll mechanics
+  //**********************NAVBAR MECHANICS SECTION************************************
 
   window.onscroll = function() {
     myFunction();
