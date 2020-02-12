@@ -114,7 +114,6 @@
     const data = await response.json();
     const arr = await data.results;
     const filteredArr = cat ? filterFromCategories(arr, cat) : arr;
-    console.log(filteredArr);
     //display them
     filteredArr.forEach((e, i) => {
       if (i < 12) {
@@ -200,7 +199,6 @@
     if (data.ok) {
       const dat = await data.json();
       const array = await dat.results;
-      console.log(array);
         for(let i=0; i<5;i++){
           let number = Math.round(Math.random()*19)
           let spanGender = "";
@@ -220,7 +218,10 @@
           html.style = 'width: 18rem';
           html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
           <div class="card-body"> <h5 class="card-title">${array[number].title}</h5> 
-          <p class="card-text ml-2">${array[number].release_date.slice(0,4)}</span><span class="ml-4">${spanGender}</span></p> </div>`
+          <div class='d-flex'>
+          <p class="card-text">${array[number].release_date.slice(0, 4)} </p>
+          <span class='ml-auto'>${spanGender}</span>
+          </div>`
           document.getElementById("movie").appendChild(html);
         }
     }else{
@@ -243,4 +244,20 @@ cookies();
       alert("resume"+"\n"+`${firstName} ${lastName}`+"\n"+`${emailContact} ${subject}`+"\n"+`${textMessage}`)
     }
   })
+/*******************************************footer**************************************/
+
+const footerMovies = async function(){
+  const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1")
+  if(data.ok){
+    const dat = await data.json();
+    const array = await dat.results
+    const title = Array.from(document.getElementsByClassName('latestMovieFooter'));
+
+    for(let i=0;i<6;i++){
+      title[i].childNodes[1].src = `${`https://image.tmdb.org/t/p/w500/${array[i].poster_path}`}`;
+      title[i].childNodes[3].innerText = array[i].title;
+    }
+  }
+}
+footerMovies()
 })();
