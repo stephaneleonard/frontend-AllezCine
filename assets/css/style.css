@@ -108,8 +108,11 @@ header #login,
 header #register {
   margin-top: 1%;
   margin-bottom: 1%;
+  line-height: 2px;
   color: white;
   background-color: black;
+  border-color: #DC3545;
+  padding: 1%;
 }
 
 header #login {
