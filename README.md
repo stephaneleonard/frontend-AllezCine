@@ -16,8 +16,8 @@ les langages utilisés ici sont pour la majeur partie:
 ## le groupe
 
 le groupe est constitué de deux personnes:
-  1 Léonard Stéphane
-  2 Lorand Pierre
+  1. Léonard Stéphane
+  2. Lorand Pierre
 
 ## répartition du travail
 
