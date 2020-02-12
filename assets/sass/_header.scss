@@ -76,18 +76,21 @@ header {
     a {
       color: black;
     }
-    margin-left: 180px;
+    margin-left: 20%;
     line-height: 50px;
   }
   #login,
   #register {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    line-height: 2px;
     color: white;
     background-color: black;
+    border-color: #DC3545;
+    padding: 1%;
   }
   #login {
-    margin-left: 25px;
-    margin-right: 5px;
+    margin-left: 5%;
+    margin-right: 1%;
   }
 }
