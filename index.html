@@ -107,7 +107,7 @@
 
                 <input type="checkbox" id="toggle" class="visually-hidden">
                 <label for="toggle">
-                    <p>Twiter</p>
+                    Twiter
                     <i id="twit" class="fab fa-twitter rounded-circle"></i>
                 </label>
 
@@ -117,7 +117,7 @@
 
                 <input type="checkbox" id="toggle2" class="visually-hidden">
                 <label for="toggle2">
-                    <p>Facebook</p>
+                    Facebook
                     <i id="faceb" class="fab fa-facebook-f rounded-circle"></i>
                 </label>
 
@@ -127,7 +127,7 @@
 
                 <input type="checkbox" id="toggle3" class="visually-hidden">
                 <label for="toggle3">
-                    <p>Dribble</p>
+                    Dribble
                     <i id="dribl" class="fas fa-basketball-ball"></i>
                 </label>
 
@@ -158,278 +158,341 @@
                 </div>
                 <button id='moreOrLess' type="button" class="btn btn-danger center">More</button>
             </section>
-            <section class="shop">
+        </div>
+        <section class="shop">
+            <div class="container">
                 <h2>SHOP</h2>
-                <div class="row">
-                    <div class="col-md-8">
+            </div>
+            <div id="switch-btn">
+                <button type="button" class="btn btn-secondary btn-sm">
+                    &lt; </button>
+                        <button type="button" class="btn btn-secondary btn-sm">></button>
+            </div>
+            <div id='shop-row' class="row">
+                <div id='shop-movies' class="col-12 col-lg-6 col-md-12 col-sm-12">
+                    <div id='shop-movies-row' class="row">
 
                     </div>
-                    <div class="col-md-4">
+
+                </div>
+                <div id='shop-movie' class="col-12 col-lg-6 col-md-12 col-sm-12">
+                    <div class="video-container">
+                        <iframe id='videoIframe' src="https://www.youtube.com/embed/GLPJSmUHZvU"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="container movie-info-block">
+                        <h3>FROZEN 2</h3>
+                        <div class="d-flex flex-row">
+                            <h4 class="left-title">Storyline :</h4>
+                            <p class="right-text">frozen Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam
+                                qui provident,
+                                optio ducimus ipsa consequuntur perferendis architecto unde non neque atque?
+                                Molestiae ipsum repudiandae nulla rerum aliquid impedit ut iure.</p>
+                        </div>
+
+                        <div class="d-flex flex-row">
+                            <h4 class="left-title">Released on :</h4>
+                            <p class="right-text"> 2019-12_01</p>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <h4 class="left-title">Genre :</h4>
+                            <p class="right-text"> Drama | Action | Disney</p>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <h4 class="left-title">Price :</h4>
+                            <p class="right-text"> 15 $</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!-- <div class="container">
+            <section class="shop">
+                <h2>SHOP</h2>
+
+                <div id='shop-row' class="row">
+                    <div id='shop-movies' class="col-12 col-lg-7 col-md-12 col-sm-12">
+                        <div id='shop-movies-row' class="row">
+
+                        </div>
+
+                    </div>
+                    <div id='shop-movie' class="col-12 col-lg-5 col-md-12 col-sm-12">
 
                     </div>
                 </div>
             </section>
-        </div>
+        </div> -->
         <div class="container">
             <section class="contact">
                 <h2>CONTACT US</h2>
                 <form>
                     <div class="form-row">
-                      <div class="col">
-                        <input id="firstName" type="text" class="form-control mb-2 mr-2" placeholder="First name">
-                      </div>
-                      <div class="col">
-                        <input id="lastName" type="text" class="form-control mb-2" placeholder="Last name">
-                      </div>
+                        <div class="col">
+                            <input id="firstName" type="text" class="form-control mb-2 mr-2" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input id="lastName" type="text" class="form-control mb-2" placeholder="Last name">
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="col">
-                          <input id="emailContact" type="text" class="form-control mb-2 mr-2" placeholder="email@gmail.com">
+                            <input id="emailContact" type="text" class="form-control mb-2 mr-2"
+                                placeholder="email@gmail.com">
                         </div>
                         <div class="col">
-                          <input id="subject" type="text" class="form-control mb-2" placeholder="subject">
+                            <input id="subject" type="text" class="form-control mb-2" placeholder="subject">
                         </div>
-                      </div>
-                      <div class="form-row">
+                    </div>
+                    <div class="form-row">
                         <div class="col">
-                          <textarea id="textMessage" name="area" class="form-control mt-2" rows="10" placeholder="Your message"></textarea>
-                          <button class="btn btn-danger" type="button" id="sendMessage">SEND MESSAGE</button>
+                            <textarea id="textMessage" name="area" class="form-control mt-2" rows="10"
+                                placeholder="Your message"></textarea>
+                            <button class="btn btn-danger" type="button" id="sendMessage">SEND MESSAGE</button>
                         </div>
-                        
-                      </div>
-                  </form>
+
+                    </div>
+                </form>
             </section>
         </div>
         <!-- Footer -->
-<footer class="page-footer font-small stylish-color-dark pt-4">
-  <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-      <!-- Call to action -->
-      
-    <ul class="list-unstyled list-inline text-center py-2">
-      <li class="list-inline-item">
-        <input id="nav-search" class="form-control" type="text" placeholder="recherche">
-      </li>
-      <li class="list-inline-item">
-        <a href="#!" class="btn btn-danger btn-rounded">SUBSCRIBE</a>
-      </li>
-    </ul>
-    <!-- Call to action -->
+        <footer class="page-footer font-small stylish-color-dark pt-4">
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+                <!-- Call to action -->
 
-    <!-- Grid row -->
-    <div class="row">
+                <ul class="list-unstyled list-inline text-center py-2">
+                    <li class="list-inline-item">
+                        <input id="nav-searh-footer" class="form-control" type="text" placeholder="recherche">
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#!" class="btn btn-danger btn-rounded">SUBSCRIBE</a>
+                    </li>
+                </ul>
+                <!-- Call to action -->
 
-      <!-- Grid column -->
+                <!-- Grid row -->
+                <div class="row">
 
-      <hr class="clearfix w-100 d-md-none">
+                    <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
+                    <hr class="clearfix w-100 d-md-none">
 
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-      </div>
-      <!-- Grid column -->
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 4</a>
+                            </li>
+                        </ul>
 
-      <hr class="clearfix w-100 d-md-none">
+                    </div>
+                    <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
+                    <hr class="clearfix w-100 d-md-none">
 
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-      </div>
-      <!-- Grid column -->
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 4</a>
+                            </li>
+                        </ul>
 
-      <hr class="clearfix w-100 d-md-none">
+                    </div>
+                    <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
+                    <hr class="clearfix w-100 d-md-none">
 
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                    <!-- Grid column -->
+                    <div class="col-md-2 mx-auto">
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
+                        <!-- Links -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
 
-      </div>
-      <!-- Grid column -->
-       <!-- Grid column -->
-       <div class="col-md-4 mx-auto">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Link 1</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 2</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 3</a>
+                            </li>
+                            <li>
+                                <a href="#!">Link 4</a>
+                            </li>
+                        </ul>
 
-        <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
 
-      </div>
+                        <!-- Content -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
+                        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
+                            amet,
+                            consectetur
+                            adipisicing elit.</p>
 
-    </div>
-    <!-- Grid row -->
+                    </div>
 
-  </div>
-  <!-- Footer Links -->
+                </div>
+                <!-- Grid row -->
 
-  <hr>
+            </div>
+            <!-- Footer Links -->
 
-  <!-- Social buttons -->
-  <ul class="list-unstyled list-inline text-center">
-    <li class="list-inline-item">
-      <a class="btn-floating btn-fb mx-1">
-        <i class="fab fa-facebook-f"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-tw mx-1">
-        <i class="fab fa-twitter"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-gplus mx-1">
-        <i class="fab fa-google-plus-g"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-li mx-1">
-        <i class="fab fa-linkedin-in"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-dribbble mx-1">
-        <i class="fab fa-dribbble"> </i>
-      </a>
-    </li>
-  </ul>
-  <!-- Social buttons -->
+            <hr>
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
 
-</footer>
-<!-- Footer -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
     </main>
     <!-----------------------------------------login with modal---------------------------------------------------->
-    <div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="myModalLabel">LOGIN</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="pseudo-name" class="col-form-label">Pseudo:</label>
-                  <input type="text" class="form-control" id="pseudo-name">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">LOGIN</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group">
-                  <label for="passwordLogin" class="col-form-label">password:</label>
-                  <input type="password" class="form-control" id="passwordLogin"></textarea>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="pseudo-name" class="col-form-label">Pseudo:</label>
+                            <input type="text" class="form-control" id="pseudo-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordLogin" class="col-form-label">password:</label>
+                            <input type="password" class="form-control" id="passwordLogin"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="stayConnect" class="col-form-label">Stay connected </label>
+                            <input class="mr-5" type="checkbox" id="stayConnect">
+                            <label class="ml-5" for="signUp"> Not account yet?</label>
+                            <button id="backToRegister" type="button" class="btn btn-primary ml-3">Sign UP</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="stayConnect" class="col-form-label">Stay connected </label>
-                    <input class="mr-5"type="checkbox" id="stayConnect">
-                    <label class="ml-5"for="signUp"> Not account yet?</label>
-                    <button id="backToRegister" type="button" class="btn btn-primary ml-3">Sign UP</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">login</button>
                 </div>
-              </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">login</button>
-            </div>
-          </div>
         </div>
-      </div>
-      <!-----------------------------------------register with modal---------------------------------------------------->
- <div class="modal fade" id="myModalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="myModalTitleReg">Register</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="pseudo-name-reg" class="col-form-label">Username:</label>
-              <input type="text" class="form-control" id="pseudo-name-reg">
-            </div>
-            <div class="form-group">
-              <label for="passwordRegister" class="col-form-label">password:</label>
-              <input type="password" class="form-control" id="passwordRegister"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="repeatRegister" class="col-form-label">comfirm password:</label>
-                <input type="password" class="form-control" id="repeatRegister"></textarea>
-              </div>
-            <div class="form-group">
-                <label for="emailRegister" class="col-form-label">Email</label>
-                <input class="form-control"type="email" id="emailRegister:" placeholder="exemple@gmail.com">
-            </div>
-            <label for="terms" class="col-form-label">By signing, you agree with <a href="#">terms and conditions</a></label>
-            <p><a href="#">forgot password?</a></p>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Sign up</button>
-        </div>
-      </div>
     </div>
-  </div>
+    <!-----------------------------------------register with modal---------------------------------------------------->
+    <div class="modal fade" id="myModalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalTitleReg">Register</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="pseudo-name-reg" class="col-form-label">Username:</label>
+                            <input type="text" class="form-control" id="pseudo-name-reg">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordRegister" class="col-form-label">password:</label>
+                            <input type="password" class="form-control" id="passwordRegister"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="repeatRegister" class="col-form-label">comfirm password:</label>
+                            <input type="password" class="form-control" id="repeatRegister"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailRegister" class="col-form-label">Email</label>
+                            <input class="form-control" type="email" id="emailRegister:"
+                                placeholder="exemple@gmail.com">
+                        </div>
+                        <label for="terms" class="col-form-label">By signing, you agree with <a href="#">terms and
+                                conditions</a></label>
+                        <p><a href="#">forgot password?</a></p>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--coockies-->
     <!-- <div id="cookies" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">

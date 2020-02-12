@@ -1,6 +1,46 @@
-.shop{
-    .col{
-        height: 20vh;
-        background-color: red;
+.shop {
+  #shop-row {
+    margin-bottom: 3em;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    #shop-movie {
+      background-color: rgba(0, 0, 0, 0.836);
+      padding: 0;
+
+      p{
+          color: white;
+          width: 70%;
+      }
+      h4{
+          width: 30%;
+      }
     }
+    .video-container {
+        overflow: hidden;
+        position: relative;
+        width:100%;
+        margin-bottom: 2em;
+    }
+    
+    .video-container::after {
+        padding-top: 56.25%;
+        display: block;
+        content: '';
+    }
+    
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+  }
+
+  #switch-btn {
+    text-align: end;
+    margin-bottom: 1em;
+  }
+
 }

@@ -82,22 +82,23 @@
   const register = document.getElementById("register");
 
   //cookies
-  function cookies(){
+  function cookies() {
     $("#cookies").modal("show");
   }
-  function formulaire(){
-    $("#myModalLogin").modal("show")
-    $("#myModalRegister").modal("hide")
+  function formulaire() {
+    $("#myModalLogin").modal("show");
+    $("#myModalRegister").modal("hide");
   }
-  function formulaireRegister(){
-    $("#myModalRegister").modal("show")
-    $("#myModalLogin").modal("hide")
-    
+  function formulaireRegister() {
+    $("#myModalRegister").modal("show");
+    $("#myModalLogin").modal("hide");
   }
-  login.addEventListener("click",formulaire);
-  register.addEventListener("click",formulaireRegister);
-  document.getElementById('backToRegister').addEventListener('click',formulaireRegister)
-  
+  login.addEventListener("click", formulaire);
+  register.addEventListener("click", formulaireRegister);
+  document
+    .getElementById("backToRegister")
+    .addEventListener("click", formulaireRegister);
+
   //Section featured
 
   /*
@@ -176,6 +177,58 @@
     );
   });
 
+  //**********************SHOP SECTION************************************
+
+  let currentMovie = 0;
+  /*
+   * Display the shop movies
+   *  input: nothing
+   * output: nothing
+   */
+  const displayShop = async () => {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US&page=2"
+    );
+    const data = await response.json();
+    const arr = await data.results;
+    currentMovie = arr[0].id;
+    arr.forEach((e, i) => {
+      if (i < 8) {
+        const html = document.createElement("div");
+        html.classList =
+          "card  defaultCard col-lg-3 col-md-6 col-sm-6 col-12 mx-auto";
+        html.style = "width: 18rem;";
+        html.id = `shop-${e.id}`;
+        html.innerHTML = `
+      <img src="${`https://image.tmdb.org/t/p/w500/${e.poster_path}`}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${e.title}</h5>
+        <div class='d-flex'>
+        <p class="card-text">${e.release_date.slice(0, 4)} </p>
+        <span class='ml-auto text-danger'>15 $</span>
+        </div>
+        
+      </div>`;
+        document.getElementById("shop-movies-row").appendChild(html);
+      }
+    });
+    console.log(currentMovie);
+    displayCurrentMovieInShop();
+  };
+
+  const displayCurrentMovieInShop = async () => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${currentMovie}/videos?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US`
+    );
+    const data = await response.json();
+    const key = await data.results[0].key;
+    console.log(key);
+    document.getElementById(
+      "videoIframe"
+    ).src = `https://www.youtube.com/embed/${key}`;
+  };
+  displayShop();
+
   //**********************NAVBAR MECHANICS SECTION************************************
 
   window.onscroll = function() {
@@ -201,46 +254,59 @@
       const dat = await data.json();
       const array = await dat.results;
       console.log(array);
-        for(let i=0; i<5;i++){
-          let number = Math.round(Math.random()*19)
-          let spanGender = "";
-          genre.forEach(gen=>{
-                if(gen.id==array[number].genre_ids[0])
-                spanGender= gen.name
-              })
-          array[number].genre_ids[0]
-          //   array[number].genre_ids.forEach(identity=>{
-          //   genre.forEach(gen=>{
-          //     if(gen.id==identity)
-          //     spanGender= gen.name
-          //   })
-          // })
-          const html = document.createElement("div");
-          html.classList = 'card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12 mx-auto';
-          html.style = 'width: 18rem';
-          html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
-          <div class="card-body"> <h5 class="card-title">${array[number].title}</h5> 
-          <p class="card-text ml-2">${array[number].release_date.slice(0,4)}</span><span class="ml-4">${spanGender}</span></p> </div>`
-          document.getElementById("movie").appendChild(html);
-        }
-    }else{
-        console.error(dat.status);
+      for (let i = 0; i < 5; i++) {
+        let number = Math.round(Math.random() * 19);
+        let spanGender = "";
+        genre.forEach(gen => {
+          if (gen.id == array[number].genre_ids[0]) spanGender = gen.name;
+        });
+        array[number].genre_ids[0];
+        //   array[number].genre_ids.forEach(identity=>{
+        //   genre.forEach(gen=>{
+        //     if(gen.id==identity)
+        //     spanGender= gen.name
+        //   })
+        // })
+        const html = document.createElement("div");
+        html.classList =
+          "card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12 mx-auto";
+        html.style = "width: 18rem";
+        html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
+          <div class="card-body"> <h5 class="card-title">${
+            array[number].title
+          }</h5> 
+          <p class="card-text ml-2">${array[number].release_date.slice(
+            0,
+            4
+          )}</span><span class="ml-4">${spanGender}</span></p> </div>`;
+        document.getElementById("movie").appendChild(html);
+      }
+    } else {
+      console.error(dat.status);
     }
-}
-MOVIES();
-cookies();
-/*************************************ici commence la partie contact*******************/
-  document.getElementById("sendMessage").addEventListener('click',()=>{
+  };
+  MOVIES();
+  cookies();
+  /*************************************ici commence la partie contact*******************/
+  document.getElementById("sendMessage").addEventListener("click", () => {
     let firstName = document.getElementById("firstName").value;
     let lastName = document.getElementById("lastName").value;
     let emailContact = document.getElementById("emailContact").value;
     let subject = document.getElementById("subject").value;
     let textMessage = document.getElementById("textMessage").value;
 
-    if(!firstName||!lastName||!emailContact||!subject||!textMessage){
-      alert('you need to complete each boxes')
-    }else{
-      alert("resume"+"\n"+`${firstName} ${lastName}`+"\n"+`${emailContact} ${subject}`+"\n"+`${textMessage}`)
+    if (!firstName || !lastName || !emailContact || !subject || !textMessage) {
+      alert("you need to complete each boxes");
+    } else {
+      alert(
+        "resume" +
+          "\n" +
+          `${firstName} ${lastName}` +
+          "\n" +
+          `${emailContact} ${subject}` +
+          "\n" +
+          `${textMessage}`
+      );
     }
-  })
+  });
 })();
