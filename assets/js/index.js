@@ -217,6 +217,22 @@
   };
 
   const displayCurrentMovieInShop = async () => {
+    //Get movie data from id
+    const r = await fetch(
+      `https://api.themoviedb.org/3/movie/${currentMovie}?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US
+      `
+    );
+    const d = await r.json();
+    console.log(d);
+    console.log(d.genres)
+    let genres = "";
+    d.genres.forEach(e => (genres += 'test'+' '));
+    document.getElementById("shop-film-title").innerHTML = d.title;
+    document.getElementById("shop-film-stotyline").innerHTML = d.overview;
+    document.getElementById("shop-film-date").innerHTML = d.release_date;
+    document.getElementById("shop-film-genre").innerHTML = genres;
+
+    //Get movie Video from id
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/${currentMovie}/videos?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US`
     );
