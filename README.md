@@ -1,6 +1,6 @@
 
 # PROJET ONE PAGER ALLEZCINE
->>>>>>> bd4c6c797a798fa3db6cccc8a0fc4275a2d69dcf
+
 
 
 ## BUT
