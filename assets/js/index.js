@@ -145,6 +145,17 @@
         document.getElementById("featuredRow").appendChild(html);
       }
     });
+
+    // setup eventListeners for info modal
+
+    document.getElementById("featuredRow").childNodes.forEach(e => {
+      e.addEventListener("click", event => {
+        console.log("event target", event.srcElement.offsetParent.id.slice(9));
+        displayModalFromClick(
+          parseInt(event.srcElement.offsetParent.id.slice(9))
+        );
+      });
+    });
   };
 
   const filterFromCategories = (arr, cat) => {
@@ -179,6 +190,7 @@
   //**********************SHOP SECTION************************************
 
   let currentMovie = 0;
+  let moviesArr = [];
   /*
    * Display the shop movies
    *  input: nothing
@@ -190,7 +202,7 @@
     );
     const data = await response.json();
     const arr = await data.results;
-    currentMovie = arr[0].id;
+    moviesArr = arr;
     arr.forEach((e, i) => {
       if (i < 8) {
         const html = document.createElement("div");
@@ -218,14 +230,17 @@
   const displayCurrentMovieInShop = async () => {
     //Get movie data from id
     const r = await fetch(
-      `https://api.themoviedb.org/3/movie/${currentMovie}?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US
+      `https://api.themoviedb.org/3/movie/${moviesArr[currentMovie].id}?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US
       `
     );
     const d = await r.json();
     console.log(d);
-    console.log(d.genres)
+    console.log(d.genres);
     let genres = "";
-    d.genres.forEach(e => (genres += 'test'+' '));
+    d.genres.forEach(e => {
+      console.log("e =", e.id);
+      genres += getGenreName(e.id);
+    });
     document.getElementById("shop-film-title").innerHTML = d.title;
     document.getElementById("shop-film-stotyline").innerHTML = d.overview;
     document.getElementById("shop-film-date").innerHTML = d.release_date;
@@ -233,7 +248,7 @@
 
     //Get movie Video from id
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${currentMovie}/videos?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US`
+      `https://api.themoviedb.org/3/movie/${moviesArr[currentMovie].id}/videos?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US`
     );
     const data = await response.json();
     const key = await data.results[0].key;
@@ -242,7 +257,99 @@
       "videoIframe"
     ).src = `https://www.youtube.com/embed/${key}`;
   };
+
+  const getGenreName = id => {
+    for (let i = 0; i < genre.length; i++) {
+      if (genre[i].id == id) return genre[i].name;
+    }
+  };
   displayShop();
+
+  //add EventListeners
+
+  document.getElementById("goNext").addEventListener("click", e => {
+    if (currentMovie < 7) {
+      currentMovie++;
+      displayCurrentMovieInShop();
+    }
+  });
+  document.getElementById("goBack").addEventListener("click", e => {
+    if (currentMovie > 0) {
+      currentMovie--;
+      displayCurrentMovieInShop();
+    }
+  });
+
+  //**********************ONCLICK MODAL SECTION************************************
+  const displayModalFromClick = async id => {
+    console.log("modal id is: ", id);
+    //Get movie data from id
+    const r = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US
+      `
+    );
+    const d = await r.json();
+    console.log(d);
+    console.log(d.genres);
+    let genres = "";
+    d.genres.forEach(e => {
+      console.log("e =", e.id);
+      genres += getGenreName(e.id);
+    });
+    document.getElementById("shop-film-title").innerHTML = d.title;
+    document.getElementById("shop-film-stotyline").innerHTML = d.overview;
+    document.getElementById("shop-film-date").innerHTML = d.release_date;
+    document.getElementById("shop-film-genre").innerHTML = genres;
+
+    //Get movie Video from id
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US`
+    );
+    const data = await response.json();
+    const key = await data.results[0].key;
+    console.log(key);
+    const html = document.createElement("div");
+    html.classList = "modal";
+    html.tabIndex = "-1";
+    html.role = "dialog";
+    html.id = "filmModal";
+    html.innerHTML = `
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Film infos</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        <iframe id='videoIframe' src="https://www.youtube.com/embed/${key}"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                            <div class="container movie-info-block">
+                        <h3 id='shop-film-title'>${d.title}</h3>
+                        <div class="d-flex flex-row">
+                            <h4 class="left-title">Storyline :</h4>
+                            <p id='shop-film-stotyline'>${d.overview}</p>
+                        </div>
+
+                        <div class="d-flex flex-row">
+                            <h4 class="left-title">Released on :</h4>
+                            <p id='shop-film-date'> ${d.release_date}</p>
+                        </div>
+                    </div>
+            <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+      </div>`;
+    document.getElementById("modalContainer").innerHTML = "";
+    document.getElementById("modalContainer").appendChild(html);
+    $("#filmModal").modal("show");
+  };
+  // displayModalFromClick(419704);
 
   //**********************NAVBAR MECHANICS SECTION************************************
 
@@ -268,34 +375,47 @@
     if (data.ok) {
       const dat = await data.json();
       const array = await dat.results;
-        for(let i=0; i<5;i++){
-          let number = Math.round(Math.random()*19)
-          let spanGender = "";
-          genre.forEach(gen=>{
-                if(gen.id==array[number].genre_ids[0])
-                spanGender= gen.name
-              })
-          array[number].genre_ids[0]
-          //   array[number].genre_ids.forEach(identity=>{
-          //   genre.forEach(gen=>{
-          //     if(gen.id==identity)
-          //     spanGender= gen.name
-          //   })
-          // })
-          const html = document.createElement("div");
-          html.classList = 'card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12 mx-auto';
-          html.style = 'width: 18rem';
-          html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
-          <div class="card-body"> <h5 class="card-title">${array[number].title}</h5> 
+      for (let i = 0; i < 5; i++) {
+        let number = Math.round(Math.random() * 19);
+        let spanGender = "";
+        genre.forEach(gen => {
+          if (gen.id == array[number].genre_ids[0]) spanGender = gen.name;
+        });
+        array[number].genre_ids[0];
+        //   array[number].genre_ids.forEach(identity=>{
+        //   genre.forEach(gen=>{
+        //     if(gen.id==identity)
+        //     spanGender= gen.name
+        //   })
+        // })
+        const html = document.createElement("div");
+        html.classList =
+          "card defaultCard col-lg-2 col-md-2 col-sm-6 col-xs-12 mx-auto";
+        html.style = "width: 18rem";
+        html.id = `card-${array[number].id}`;
+        html.innerHTML = `<img src="${`https://image.tmdb.org/t/p/w500/${array[number].poster_path}`}" class="card-img-top" alt="..."> 
+          <div class="card-body"> <h5 class="card-title">${
+            array[number].title
+          }</h5> 
           <div class='d-flex'>
           <p class="card-text">${array[number].release_date.slice(0, 4)} </p>
           <span class='ml-auto'>${spanGender}</span>
-          </div>`
-          document.getElementById("movie").appendChild(html);
-        }
-    }else{
-        console.error(dat.status);
+          </div>`;
+        document.getElementById("movie").appendChild(html);
+      }
+    } else {
+      console.error(dat.status);
     }
+    // setup eventListeners for info modal
+
+    document.getElementById("movie").childNodes.forEach(e => {
+      e.addEventListener("click", event => {
+        console.log("event target", event.srcElement.offsetParent.id.slice(5));
+        displayModalFromClick(
+          parseInt(event.srcElement.offsetParent.id.slice(5))
+        );
+      });
+    });
   };
   MOVIES();
   cookies();
@@ -320,21 +440,27 @@
           `${textMessage}`
       );
     }
-  })
-/*******************************************footer**************************************/
+  });
+  /*******************************************footer**************************************/
 
-const footerMovies = async function(){
-  const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1")
-  if(data.ok){
-    const dat = await data.json();
-    const array = await dat.results
-    const title = Array.from(document.getElementsByClassName('latestMovieFooter'));
+  const footerMovies = async function() {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1"
+    );
+    if (data.ok) {
+      const dat = await data.json();
+      const array = await dat.results;
+      const title = Array.from(
+        document.getElementsByClassName("latestMovieFooter")
+      );
 
-    for(let i=0;i<6;i++){
-      title[i].childNodes[1].src = `${`https://image.tmdb.org/t/p/w500/${array[i].poster_path}`}`;
-      title[i].childNodes[3].innerText = array[i].title;
+      for (let i = 0; i < 6; i++) {
+        title[
+          i
+        ].childNodes[1].src = `${`https://image.tmdb.org/t/p/w500/${array[i].poster_path}`}`;
+        title[i].childNodes[3].innerText = array[i].title;
+      }
     }
-  }
-}
-footerMovies()
+  };
+  footerMovies();
 })();

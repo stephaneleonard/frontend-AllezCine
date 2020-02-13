@@ -162,11 +162,14 @@
         <section class="shop">
             <div class="container">
                 <h2>SHOP</h2>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                </button>
             </div>
             <div id="switch-btn">
-                <button type="button" class="btn btn-secondary btn-sm">
+                <button id='goBack' type="button" class="btn btn-secondary btn-sm">
                     &lt; </button>
-                        <button type="button" class="btn btn-secondary btn-sm">></button>
+                <button id='goNext' type="button" class="btn btn-secondary btn-sm">></button>
             </div>
             <div id='shop-row' class="row">
                 <div id='shop-movies' class="col-12 col-lg-6 col-md-12 col-sm-12">
@@ -185,7 +188,8 @@
                         <h3 id='shop-film-title'>FROZEN 2</h3>
                         <div class="d-flex flex-row">
                             <h4 class="left-title">Storyline :</h4>
-                            <p id='shop-film-stotyline'>frozen Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam
+                            <p id='shop-film-stotyline'>frozen Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Nam
                                 qui provident,
                                 optio ducimus ipsa consequuntur perferendis architecto unde non neque atque?
                                 Molestiae ipsum repudiandae nulla rerum aliquid impedit ut iure.</p>
@@ -259,242 +263,244 @@
             </section>
         </div>
     </main>
-            <!-- Footer -->
-<footer class="page-footer font-small stylish-color-dark pt-4">
-  <!-- Footer Links -->
-    <div class="container text-center text-md-left">
-      <!-- Call to action -->
-      
-    <ul class="list-unstyled list-inline text-center py-2">
-      <li class="list-inline-item">
-        <input id="nav-search-footer" class="form-control" type="text" placeholder="Enter your email">
-      </li>
-      <li class="list-inline-item">
-        <a href="#!" class="btn btn-danger btn-rounded">SUBSCRIBE</a>
-      </li>
-    </ul>
-    <!-- Call to action -->
+    <!-- Footer -->
+    <footer class="page-footer font-small stylish-color-dark pt-4">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+            <!-- Call to action -->
 
-    <!-- Grid row -->
-    <div class="row">
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <input id="nav-search-footer" class="form-control" type="text" placeholder="Enter your email">
+                </li>
+                <li class="list-inline-item">
+                    <a href="#!" class="btn btn-danger btn-rounded">SUBSCRIBE</a>
+                </li>
+            </ul>
+            <!-- Call to action -->
 
-      <!-- Grid column -->
+            <!-- Grid row -->
+            <div class="row">
 
-      <hr class="clearfix w-100 d-md-none">
+                <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 mx-auto">
+                <hr class="clearfix w-100 d-md-none">
 
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">RELEASE</h5>
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 mx-auto">
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">2020</a>
-          </li>
-          <li>
-            <a href="#!">2019</a>
-          </li>
-          <li>
-            <a href="#!">2018</a>
-          </li>
-          <li>
-            <a href="#!">2017</a>
-          </li>
-          <li>
-            <a href="#!">2016</a>
-          </li>
-          <li>
-            <a href="#!">2015</a>
-          </li>
-        </ul>
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">RELEASE</h5>
 
-      </div>
-      <!-- Grid column -->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">2020</a>
+                        </li>
+                        <li>
+                            <a href="#!">2019</a>
+                        </li>
+                        <li>
+                            <a href="#!">2018</a>
+                        </li>
+                        <li>
+                            <a href="#!">2017</a>
+                        </li>
+                        <li>
+                            <a href="#!">2016</a>
+                        </li>
+                        <li>
+                            <a href="#!">2015</a>
+                        </li>
+                    </ul>
 
-      <hr class="clearfix w-100 d-md-none">
+                </div>
+                <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 mx-auto">
+                <hr class="clearfix w-100 d-md-none">
 
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">MOVIES</h5>
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 mx-auto">
 
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">ADVENTURE</a>
-          </li>
-          <li>
-            <a href="#!">COMEDY</a>
-          </li>
-          <li>
-            <a href="#!">FANTASY</a>
-          </li>
-          <li>
-            <a href="#!">ACTION</a>
-          </li>
-          <li>
-            <a href="#!">MOVIES</a>
-          </li>
-          <li>
-            <a href="#!">HORROR</a>
-          </li>
-        </ul>
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">MOVIES</h5>
 
-      </div>
-      <!-- Grid column -->
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#!">ADVENTURE</a>
+                        </li>
+                        <li>
+                            <a href="#!">COMEDY</a>
+                        </li>
+                        <li>
+                            <a href="#!">FANTASY</a>
+                        </li>
+                        <li>
+                            <a href="#!">ACTION</a>
+                        </li>
+                        <li>
+                            <a href="#!">MOVIES</a>
+                        </li>
+                        <li>
+                            <a href="#!">HORROR</a>
+                        </li>
+                    </ul>
 
-      <hr class="clearfix w-100 d-md-none">
+                </div>
+                <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 mx-auto">
+                <hr class="clearfix w-100 d-md-none">
 
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">REVIEUW MOVIES</h5>
-        <div class="row">
-        <ul class="list-stylized">
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 mx-auto">
 
-          <li class="d-inline-block ">
-            <a href="#!">Comedy</a>
-          </li>
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">REVIEUW MOVIES</h5>
+                    <div class="row">
+                        <ul class="list-stylized">
 
-          <li class="d-inline-block ">
-            <a href="#!">Horror</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Comedy</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Historical</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Horror</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Romantic</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Historical</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Love</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Romantic</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Action</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Love</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Reviews</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Action</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Comedy</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Reviews</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Adventure</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Comedy</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Fantasy</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Adventure</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Romantic</a>
-          </li>
-          <li class="d-inline-block ">
-            <a href="#!">Love</a>
-          </li>
-          <li class="d-inline-block ">
-            <a href="#!">Comedy</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Fantasy</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Historical</a>
-          </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Romantic</a>
+                            </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Love</a>
+                            </li>
+                            <li class="d-inline-block ">
+                                <a href="#!">Comedy</a>
+                            </li>
 
-          <li class="d-inline-block ">
-            <a href="#!">Action</a>
-          </li>
-        </ul>
-      </div>
-      <!-- Grid column -->
-    </div>
-    <!-- Grid row -->
-     <!-- Grid column -->
-     <div class="col-md-2 col-lg-2 mx-auto">
-      <!-- Content -->
-      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">latest movie</h5>
-      <ul class="list-unstyled">
-        <li class="latestMovieFooter">
-          <img src="./assets/img/hero.jpg" style="width: 40%;"alt="hero">
-          <p>Avengers BABY</p>
-        </li>
-        <li class="latestMovieFooter">
-          <img src="./assets/img/hero.jpg" style="width: 40%;"alt="hero">
-          <p>Avengers BABY</p>
-        </li>
-        <li class="latestMovieFooter">
-          <img src="./assets/img/hero.jpg" style="width: 40%;"alt="hero">
-          <p>Avengers BABY</p>
-        </li>
-        <li class="latestMovieFooter">
-          <img src="./assets/img/hero.jpg" style="width: 40%;"alt="hero">
-          <p>Avengers BABY</p>
-        </li>
-        <li class="latestMovieFooter">
-          <img src="./assets/img/hero.jpg" style="width: 40%;"alt="hero">
-          <p>Avengers BABY</p>
-        </li>
-        <li class="latestMovieFooter">
-          <img src="./assets/img/hero.jpg" style="width: 40%;"alt="hero">
-          <p>Avengers BABY</p>
-        </li>
-      </ul>
+                            <li class="d-inline-block ">
+                                <a href="#!">Historical</a>
+                            </li>
 
-    </div>
-    <div class="col-md-2 col-lg-2 mx-auto">
-      <!-- Content -->
-      <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><span class="text-danger">ALLEZ</span><span class="text-white">CINE!</span></h5>
-      
+                            <li class="d-inline-block ">
+                                <a href="#!">Action</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 mx-auto">
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">latest movie</h5>
+                    <ul class="list-unstyled">
+                        <li class="latestMovieFooter">
+                            <img src="./assets/img/hero.jpg" style="width: 40%;" alt="hero">
+                            <p>Avengers BABY</p>
+                        </li>
+                        <li class="latestMovieFooter">
+                            <img src="./assets/img/hero.jpg" style="width: 40%;" alt="hero">
+                            <p>Avengers BABY</p>
+                        </li>
+                        <li class="latestMovieFooter">
+                            <img src="./assets/img/hero.jpg" style="width: 40%;" alt="hero">
+                            <p>Avengers BABY</p>
+                        </li>
+                        <li class="latestMovieFooter">
+                            <img src="./assets/img/hero.jpg" style="width: 40%;" alt="hero">
+                            <p>Avengers BABY</p>
+                        </li>
+                        <li class="latestMovieFooter">
+                            <img src="./assets/img/hero.jpg" style="width: 40%;" alt="hero">
+                            <p>Avengers BABY</p>
+                        </li>
+                        <li class="latestMovieFooter">
+                            <img src="./assets/img/hero.jpg" style="width: 40%;" alt="hero">
+                            <p>Avengers BABY</p>
+                        </li>
+                    </ul>
 
-    </div>
+                </div>
+                <div class="col-md-2 col-lg-2 mx-auto">
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><span class="text-danger">ALLEZ</span><span
+                            class="text-white">CINE!</span></h5>
 
 
-  </div>
-  <!-- Footer Links -->
+                </div>
 
-  <hr>
 
-  <!-- Social buttons -->
-  <ul class="list-unstyled list-inline text-center">
-    <li class="list-inline-item">
-      <a class="btn-floating btn-fb mx-1">
-        <i class="fab fa-facebook-f"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-tw mx-1">
-        <i class="fab fa-twitter"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-gplus mx-1">
-        <i class="fab fa-google-plus-g"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-li mx-1">
-        <i class="fab fa-linkedin-in"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-dribbble mx-1">
-        <i class="fab fa-dribbble"> </i>
-      </a>
-    </li>
-  </ul>
-  <!-- Social buttons -->
+            </div>
+            <!-- Footer Links -->
 
-</footer>
-<!-- Footer -->
+            <hr>
+
+            <!-- Social buttons -->
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <!-- Social buttons -->
+
+    </footer>
+    <!-- Footer -->
     <!--login with modal-->
-    <div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -526,9 +532,9 @@
                     <button type="button" class="btn btn-primary">login</button>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+    </div>
     <!-----------------------------------------register with modal---------------------------------------------------->
     <div class="modal fade" id="myModalRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -571,6 +577,8 @@
             </div>
         </div>
     </div>
+    <!-----------------------------------------film details with modal---------------------------------------------------->
+    <div id='modalContainer'></div>
     <!--coockies-->
     <!-- <div id="cookies" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
