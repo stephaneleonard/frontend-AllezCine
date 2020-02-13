@@ -98,6 +98,24 @@
   document
     .getElementById("backToRegister")
     .addEventListener("click", formulaireRegister);
+  //**********************JUMBO SECTION************************************
+  const displayJumboImages = async cat => {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US&page=1"
+    );
+    const data = await response.json();
+    const arr = await data.results.slice(0,3);
+    console.log(arr)
+    document.getElementById('car-1').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(${`https://image.tmdb.org/t/p/w500/${arr[0].backdrop_path}`})`;
+    document.getElementById('car-2').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(${`https://image.tmdb.org/t/p/w500/${arr[1].backdrop_path}`})`;
+    document.getElementById('car-3').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(${`https://image.tmdb.org/t/p/w500/${arr[2].backdrop_path}`})`;
+
+  }
+  displayJumboImages();
+
 
   //Section featured
 
@@ -150,7 +168,6 @@
 
     document.getElementById("featuredRow").childNodes.forEach(e => {
       e.addEventListener("click", event => {
-        console.log("event target", event.srcElement.offsetParent.id.slice(9));
         displayModalFromClick(
           parseInt(event.srcElement.offsetParent.id.slice(9))
         );
@@ -223,7 +240,6 @@
         document.getElementById("shop-movies-row").appendChild(html);
       }
     });
-    console.log(currentMovie);
     displayCurrentMovieInShop();
   };
 
@@ -234,11 +250,8 @@
       `
     );
     const d = await r.json();
-    console.log(d);
-    console.log(d.genres);
     let genres = "";
     d.genres.forEach(e => {
-      console.log("e =", e.id);
       genres += getGenreName(e.id);
     });
     document.getElementById("shop-film-title").innerHTML = d.title;
@@ -252,7 +265,6 @@
     );
     const data = await response.json();
     const key = await data.results[0].key;
-    console.log(key);
     document.getElementById(
       "videoIframe"
     ).src = `https://www.youtube.com/embed/${key}`;
@@ -282,18 +294,14 @@
 
   //**********************ONCLICK MODAL SECTION************************************
   const displayModalFromClick = async id => {
-    console.log("modal id is: ", id);
     //Get movie data from id
     const r = await fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US
       `
     );
     const d = await r.json();
-    console.log(d);
-    console.log(d.genres);
     let genres = "";
     d.genres.forEach(e => {
-      console.log("e =", e.id);
       genres += getGenreName(e.id);
     });
     document.getElementById("shop-film-title").innerHTML = d.title;
@@ -307,7 +315,6 @@
     );
     const data = await response.json();
     const key = await data.results[0].key;
-    console.log(key);
     const html = document.createElement("div");
     html.classList = "modal";
     html.tabIndex = "-1";
@@ -376,17 +383,17 @@
     if (data.ok) {
       const dat = await data.json();
       const array = await dat.results;
-      let rndmArr = []
+      let rndmArr = [];
       for (let i = 0; i < 5; i++) {
         let newNmbr = true;
         let number;
-        while(newNmbr){
+        while (newNmbr) {
           number = Math.round(Math.random() * 19);
-          if(!rndmArr.includes(number)){
+          if (!rndmArr.includes(number)) {
             newNmbr = false;
           }
         }
-        
+
         rndmArr.push(number);
         let spanGender = "";
         genre.forEach(gen => {
@@ -415,13 +422,11 @@
         document.getElementById("movie").appendChild(html);
       }
     } else {
-      console.error(dat.status);
     }
     // setup eventListeners for info modal
 
     document.getElementById("movie").childNodes.forEach(e => {
       e.addEventListener("click", event => {
-        console.log("event target", event.srcElement.offsetParent.id.slice(5));
         displayModalFromClick(
           parseInt(event.srcElement.offsetParent.id.slice(5))
         );
@@ -454,19 +459,25 @@
   });
   /*******************************************footer**************************************/
 
-const footerMovies = async function(){
-  const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1")
-  if(data.ok){
-    const dat = await data.json();
-    const array = await dat.results
-    const title = Array.from(document.getElementsByClassName('latestMovieFooter'));
-    const image = Array.from(document.getElementsByClassName('footerImage'))
-    console.log(image)
+  const footerMovies = async function() {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1"
+    );
+    if (data.ok) {
+      const dat = await data.json();
+      const array = await dat.results;
+      const title = Array.from(
+        document.getElementsByClassName("latestMovieFooter")
+      );
+      const image = Array.from(document.getElementsByClassName("footerImage"));
 
-    for(let i=0;i<6;i++){
-      title[i].childNodes[1].innerText = array[i].title;
-      image[i].src = `${`https://image.tmdb.org/t/p/w500/${array[i].poster_path}`}`
+      for (let i = 0; i < 6; i++) {
+        title[i].childNodes[1].innerText = array[i].title;
+        image[
+          i
+        ].src = `${`https://image.tmdb.org/t/p/w500/${array[i].poster_path}`}`;
+      }
     }
-  }};
+  };
   footerMovies();
 })();
