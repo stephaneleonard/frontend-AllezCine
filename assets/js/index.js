@@ -376,8 +376,18 @@
     if (data.ok) {
       const dat = await data.json();
       const array = await dat.results;
+      let rndmArr = []
       for (let i = 0; i < 5; i++) {
-        let number = Math.round(Math.random() * 19);
+        let newNmbr = true;
+        let number;
+        while(newNmbr){
+          number = Math.round(Math.random() * 19);
+          if(!rndmArr.includes(number)){
+            newNmbr = false;
+          }
+        }
+        
+        rndmArr.push(number);
         let spanGender = "";
         genre.forEach(gen => {
           if (gen.id == array[number].genre_ids[0]) spanGender = gen.name;
