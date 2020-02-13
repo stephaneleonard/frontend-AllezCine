@@ -367,6 +367,7 @@
       document.getElementById("myNav").classList.remove("nav-colored");
     }
   }
+
   //**********************Pierre SECTION************************************
   const MOVIES = async function() {
     let data = await fetch(
