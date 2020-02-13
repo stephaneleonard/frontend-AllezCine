@@ -444,24 +444,19 @@
   });
   /*******************************************footer**************************************/
 
-  const footerMovies = async function() {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1"
-    );
-    if (data.ok) {
-      const dat = await data.json();
-      const array = await dat.results;
-      const title = Array.from(
-        document.getElementsByClassName("latestMovieFooter")
-      );
+const footerMovies = async function(){
+  const data = await fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1")
+  if(data.ok){
+    const dat = await data.json();
+    const array = await dat.results
+    const title = Array.from(document.getElementsByClassName('latestMovieFooter'));
+    const image = Array.from(document.getElementsByClassName('footerImage'))
+    console.log(image)
 
-      for (let i = 0; i < 6; i++) {
-        title[
-          i
-        ].childNodes[1].src = `${`https://image.tmdb.org/t/p/w500/${array[i].poster_path}`}`;
-        title[i].childNodes[3].innerText = array[i].title;
-      }
+    for(let i=0;i<6;i++){
+      title[i].childNodes[1].innerText = array[i].title;
+      image[i].src = `${`https://image.tmdb.org/t/p/w500/${array[i].poster_path}`}`
     }
-  };
+  }};
   footerMovies();
 })();
