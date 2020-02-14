@@ -14,7 +14,11 @@
       left: -54px;
       transition: left 0.4s;
     }
-
+    :hover{
+      #twit{
+        color:white;
+      }
+    }
     p {
       padding-left: 10px;
       display: inline;
@@ -43,6 +47,11 @@
       position: relative;
       left: -72px;
       transition: left 0.4s;
+    }
+    :hover{
+      #faceb{
+        color:white;
+      }
     }
 
     p {
@@ -79,6 +88,11 @@
     p {
       padding-left: 10px;
       display: inline;
+    }
+    :hover{
+      #dribl{
+        color:white;
+      }
     }
 
     #dribl{

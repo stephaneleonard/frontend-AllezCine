@@ -89,10 +89,12 @@
     $("#cookies").modal("show");
   }
   function formulaire() {
+    document.getElementById("loginModalButton").removeAttribute("data-dismiss","modal");
     $("#myModalLogin").modal("show");
     $("#myModalRegister").modal("hide");
   }
   function formulaireRegister() {
+    document.getElementById("signUpRegister").removeAttribute("data-dismiss","modal");
     $("#myModalRegister").modal("show");
     $("#myModalLogin").modal("hide");
   }
@@ -101,6 +103,36 @@
   document
     .getElementById("backToRegister")
     .addEventListener("click", formulaireRegister);
+  //control of login
+  document.getElementById("loginModalButton").addEventListener("click",()=>{
+    if(!document.getElementById("passwordLogin").value || !document.getElementById('pseudo-name').value){
+      document.getElementById("passwordLogin").setAttribute("placeholder","put your password")
+      document.getElementById("passwordLogin").style.border = "red 1px solid"
+      document.getElementById("pseudo-name").setAttribute("placeholder","put your username")
+      document.getElementById("pseudo-name").style.border = "red 1px solid"
+    }else
+      document.getElementById("loginModalButton").setAttribute("data-dismiss","modal");
+  })
+  //control of register
+  document.getElementById("signUpRegister").addEventListener('click',()=>{
+    if(!document.getElementById("pseudo-name-reg").value||!document.getElementById("passwordRegister").value
+    ||!document.getElementById("repeatRegister").value||!document.getElementById("emailRegister").value){
+      document.getElementById("pseudo-name-reg").setAttribute("placeholder","put your username");
+      document.getElementById("pseudo-name-reg").style.border = "red 1px solid";
+      document.getElementById("passwordRegister").setAttribute("placeholder","put your password");
+      document.getElementById("passwordRegister").style.border = "red 1px solid";
+      document.getElementById("repeatRegister").setAttribute("placeholder","put your password");
+      document.getElementById("repeatRegister").style.border = "red 1px solid";
+      document.getElementById("emailRegister").setAttribute("placeholder","put your email");
+      document.getElementById("emailRegister").style.border ="red 1px solid";    
+    }else if(document.getElementById("passwordRegister").value!=document.getElementById("repeatRegister").value){
+      document.getElementById("passwordRegister").setAttribute("placeholder","put your password");
+      document.getElementById("passwordRegister").style.border = "red 1px solid";
+      document.getElementById("repeatRegister").setAttribute("placeholder","put your password");
+      document.getElementById("repeatRegister").style.border = "red 1px solid";
+    }else
+    document.getElementById("signUpRegister").setAttribute("data-dismiss","modal");
+  })
   //**********************JUMBO SECTION************************************
   const displayJumboImages = async () => {
     const response = await fetch(
