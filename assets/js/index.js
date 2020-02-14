@@ -144,7 +144,7 @@
       document.getElementById(
         `car-${i + 1}`
       ).style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url(${`https://image.tmdb.org/t/p/original/${arr[i].backdrop_path}`})`;
+      url(${`https://image.tmdb.org/t/p/w1280/${arr[i].backdrop_path}`})`;
       const r = await fetch(
         `https://api.themoviedb.org/3/movie/${arr[i].id}?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US
         `
