@@ -202,7 +202,7 @@
         html.style = "width: 18rem;";
         html.id = `featured-${e.id}`;
         html.innerHTML = `
-      <img src="${`https://image.tmdb.org/t/p/w500/${e.poster_path}`}" class="card-img-top" alt="...">
+      <img src="${`https://image.tmdb.org/t/p/w200/${e.poster_path}`}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${e.title}</h5>
         <p class="card-text">${e.release_date.slice(0, 4)}</p>
@@ -275,7 +275,7 @@
         html.style = "width: 18rem;";
         html.id = `shop-${e.id}`;
         html.innerHTML = `
-      <img src="${`https://image.tmdb.org/t/p/w500/${e.poster_path}`}" class="card-img-top" alt="...">
+      <img src="${`https://image.tmdb.org/t/p/w200/${e.poster_path}`}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${e.title}</h5>
         <div class='d-flex'>
