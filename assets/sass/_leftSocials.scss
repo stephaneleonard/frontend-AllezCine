@@ -3,6 +3,7 @@
   line-height: 30px;
   left: 0px;
   top: 70vh;
+  z-index: 1000;
   #Twitter {
     label {
       background-color: #1da1f2;
@@ -10,7 +11,7 @@
       border-bottom-right-radius: 1em;
       height: 30px;
       position: relative;
-      left: -60px;
+      left: -54px;
       transition: left 0.4s;
     }
 
@@ -40,7 +41,7 @@
       border-bottom-right-radius: 1em;
       height: 30px;
       position: relative;
-      left: -82px;
+      left: -72px;
       transition: left 0.4s;
     }
 
@@ -70,7 +71,7 @@
       border-bottom-right-radius: 1em;
       height: 30px;
       position: relative;
-      left: -66px;
+      left: -58px;
       transition: left 0.4s;
       z-index: 999;
     }

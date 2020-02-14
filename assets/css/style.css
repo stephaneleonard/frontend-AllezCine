@@ -66,25 +66,24 @@ header .carousel .carousel-item .carousel-caption {
 header .carousel #car-1 {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(../img/hero.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/hero.jpg);
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 header .carousel #car-2 {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(../img/hero2.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/hero2.jpg);
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 header .carousel #car-3 {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0.6))), url(../img/hero.jpg);
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/hero.jpg);
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 header #login-bar {
@@ -110,7 +109,7 @@ header #register {
   line-height: 2px;
   color: white;
   background-color: black;
-  border-color: #DC3545;
+  border-color: #dc3545;
   padding: 10px 1%;
 }
 
@@ -124,6 +123,7 @@ header #login {
   line-height: 30px;
   left: 0px;
   top: 70vh;
+  z-index: 1000;
 }
 
 #left-socials #Twitter label {
@@ -132,7 +132,7 @@ header #login {
   border-bottom-right-radius: 1em;
   height: 30px;
   position: relative;
-  left: -60px;
+  left: -54px;
   -webkit-transition: left 0.4s;
   transition: left 0.4s;
 }
@@ -163,7 +163,7 @@ header #login {
   border-bottom-right-radius: 1em;
   height: 30px;
   position: relative;
-  left: -82px;
+  left: -72px;
   -webkit-transition: left 0.4s;
   transition: left 0.4s;
 }
@@ -194,7 +194,7 @@ header #login {
   border-bottom-right-radius: 1em;
   height: 30px;
   position: relative;
-  left: -66px;
+  left: -58px;
   -webkit-transition: left 0.4s;
   transition: left 0.4s;
   z-index: 999;
