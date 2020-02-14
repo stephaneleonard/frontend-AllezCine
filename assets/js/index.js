@@ -99,23 +99,35 @@
     .getElementById("backToRegister")
     .addEventListener("click", formulaireRegister);
   //**********************JUMBO SECTION************************************
-  const displayJumboImages = async cat => {
+  const displayJumboImages = async () => {
     const response = await fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US&page=1"
     );
     const data = await response.json();
-    const arr = await data.results.slice(0,3);
-    console.log(arr)
-    document.getElementById('car-1').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${`https://image.tmdb.org/t/p/original/${arr[0].backdrop_path}`})`;
-    document.getElementById('car-2').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${`https://image.tmdb.org/t/p/original/${arr[1].backdrop_path}`})`;
-    document.getElementById('car-3').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${`https://image.tmdb.org/t/p/original/${arr[2].backdrop_path}`})`;
-
-  }
+    const arr = await data.results.slice(0, 3);
+    for (let i = 0; i < 3; i++) {
+      document.getElementById(
+        `car-${i + 1}`
+      ).style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(${`https://image.tmdb.org/t/p/original/${arr[i].backdrop_path}`})`;
+      const r = await fetch(
+        `https://api.themoviedb.org/3/movie/${arr[i].id}?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US
+        `
+      );
+      const d = await r.json();
+      console.log(d);
+      document.getElementById(`tagline-${i + 1}`).innerHTML = d.tagline;
+      const videoQuerry = await fetch(
+        `https://api.themoviedb.org/3/movie/${arr[i].id}/videos?api_key=68275a97be2eef9aba666e601c7b14f8&language=en-US`
+      );
+      const videoData = await videoQuerry.json();
+      const key = await videoData.results[0].key;
+      document.getElementById(
+        `car-btn-${i + 1}`
+      ).href = `https://youtu.be/${key}`;
+    }
+  };
   displayJumboImages();
-
 
   //Section featured
 
@@ -300,6 +312,7 @@
       `
     );
     const d = await r.json();
+    console.log(d);
     let genres = "";
     d.genres.forEach(e => {
       genres += getGenreName(e.id);
