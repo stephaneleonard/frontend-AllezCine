@@ -343,7 +343,11 @@ footer li {
 }
 
 footer span {
-  font-size: 35px;
+  font-size: 1.5em;
+}
+
+footer .img-footer {
+  padding: 0;
 }
 
 .list-stylized a {
@@ -354,6 +358,10 @@ footer span {
   padding: 4px;
   margin: 2px 1px;
   background-color: #302f2f;
+}
+
+.list-unstyled {
+  margin-bottom: 0px;
 }
 
 .latestMovieFooter {
