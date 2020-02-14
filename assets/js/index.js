@@ -273,6 +273,7 @@
     document.getElementById("shop-film-stotyline").innerHTML = d.overview;
     document.getElementById("shop-film-date").innerHTML = d.release_date;
     document.getElementById("shop-film-genre").innerHTML = genres;
+    document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "red 2px solid"
 
     //Get movie Video from id
     const response = await fetch(
@@ -287,7 +288,7 @@
 
   const getGenreName = id => {
     for (let i = 0; i < genre.length; i++) {
-      if (genre[i].id == id) return genre[i].name;
+      if (genre[i].id == id) return genre[i].name+"| ";
     }
   };
   displayShop();
@@ -295,15 +296,19 @@
   //add EventListeners
 
   document.getElementById("goNext").addEventListener("click", e => {
+    document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "none"
     if (currentMovie < 7) {
       currentMovie++;
       displayCurrentMovieInShop();
+      document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "red 2px solid"
     }
   });
   document.getElementById("goBack").addEventListener("click", e => {
     if (currentMovie > 0) {
+      document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "none"
       currentMovie--;
       displayCurrentMovieInShop();
+      document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "red 2px solid"
     }
   });
 
