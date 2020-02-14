@@ -29,3 +29,12 @@ footer{
 .list-inline-item{
     color:white;
 }
+
+#boutonTop{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+.hide-bouton{
+    visibility: hidden;
+}
