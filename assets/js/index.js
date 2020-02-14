@@ -83,6 +83,9 @@
 
   //cookies
   function cookies() {
+    document.getElementById('cookiesAccept').addEventListener('click',()=>{
+      $("#cookies").modal('hide');
+    })
     $("#cookies").modal("show");
   }
   function formulaire() {
@@ -370,9 +373,19 @@
       document.documentElement.scrollTop > 50
     ) {
       document.getElementById("myNav").classList.add("nav-colored");
+      document.getElementById('boutonTop').classList.remove("hide-bouton")
+
     } else {
       document.getElementById("myNav").classList.remove("nav-colored");
+      document.getElementById('boutonTop').classList.add("hide-bouton");
     }
+    //eventlister of boutonTop
+    document.getElementById('boutonTop').addEventListener('click',()=>{
+     window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    })
   }
 
   //**********************Pierre SECTION************************************
