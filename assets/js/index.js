@@ -83,9 +83,9 @@
 
   //cookies
   function cookies() {
-    document.getElementById('cookiesAccept').addEventListener('click',()=>{
-      $("#cookies").modal('hide');
-    })
+    document.getElementById("cookiesAccept").addEventListener("click", () => {
+      $("#cookies").modal("hide");
+    });
     $("#cookies").modal("show");
   }
   function formulaire() {
@@ -299,13 +299,15 @@
     const d = await r.json();
     let genres = "";
     d.genres.forEach(e => {
-      genres += getGenreName(e.id);
+      genres += " " + getGenreName(e.id);
     });
     document.getElementById("shop-film-title").innerHTML = d.title;
     document.getElementById("shop-film-stotyline").innerHTML = d.overview;
     document.getElementById("shop-film-date").innerHTML = d.release_date;
     document.getElementById("shop-film-genre").innerHTML = genres;
-    document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "red 2px solid"
+    document.getElementById(
+      `shop-${moviesArr[currentMovie].id}`
+    ).style.borderTop = "red 2px solid";
 
     //Get movie Video from id
     const response = await fetch(
@@ -320,7 +322,7 @@
 
   const getGenreName = id => {
     for (let i = 0; i < genre.length; i++) {
-      if (genre[i].id == id) return genre[i].name+"| ";
+      if (genre[i].id == id) return genre[i].name + "| ";
     }
   };
   displayShop();
@@ -328,19 +330,27 @@
   //add EventListeners
 
   document.getElementById("goNext").addEventListener("click", e => {
-    document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "none"
+    document.getElementById(
+      `shop-${moviesArr[currentMovie].id}`
+    ).style.borderTop = "none";
     if (currentMovie < 7) {
       currentMovie++;
       displayCurrentMovieInShop();
-      document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "red 2px solid"
+      document.getElementById(
+        `shop-${moviesArr[currentMovie].id}`
+      ).style.borderTop = "red 2px solid";
     }
   });
   document.getElementById("goBack").addEventListener("click", e => {
     if (currentMovie > 0) {
-      document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "none"
+      document.getElementById(
+        `shop-${moviesArr[currentMovie].id}`
+      ).style.borderTop = "none";
       currentMovie--;
       displayCurrentMovieInShop();
-      document.getElementById(`shop-${moviesArr[currentMovie].id}`).style.borderTop = "red 2px solid"
+      document.getElementById(
+        `shop-${moviesArr[currentMovie].id}`
+      ).style.borderTop = "red 2px solid";
     }
   });
 
@@ -383,22 +393,28 @@
             </button>
         </div>
         <div class="modal-body">
+        <div class="video-container">
         <iframe id='videoIframe' src="https://www.youtube.com/embed/${key}"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                            <div class="container movie-info-block">
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+                    </div>
+        
+                        <div class="container movie-info-block">
                         <h3 id='shop-film-title'>${d.title}</h3>
-                        <div class="d-flex flex-row">
-                            <h4 class="left-title">Storyline :</h4>
-                            <p id='shop-film-stotyline'>${d.overview}</p>
+                        <div class="row">
+                            <h4 class="col-12 col-md-4 left-title">Storyline:</h4>
+                            <p class='col-12 col-md-8' id='shop-film-stotyline'>${d.overview}</p>
                         </div>
 
-                        <div class="d-flex flex-row">
-                            <h4 class="left-title">Released on :</h4>
-                            <p id='shop-film-date'> ${d.release_date}</p>
+                        <div class="row">
+                            <h4 class="col-12 col-md-4 left-title">Released on :</h4>
+                            <p class='col-12 col-md-8' id='shop-film-date'> ${d.release_date}</p>
                         </div>
+                        <div class="row">
+                          <h4 class="col-12 col-md-4 left-title">genres :</h4>
+                          <p class="col-12 col-md-8" id='shop-film-date'> ${genres}</p>
+                      </div>
                     </div>
-            <p>Modal body text goes here.</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -423,19 +439,18 @@
       document.documentElement.scrollTop > 50
     ) {
       document.getElementById("myNav").classList.add("nav-colored");
-      document.getElementById('boutonTop').classList.remove("hide-bouton")
-
+      document.getElementById("boutonTop").classList.remove("hide-bouton");
     } else {
       document.getElementById("myNav").classList.remove("nav-colored");
-      document.getElementById('boutonTop').classList.add("hide-bouton");
+      document.getElementById("boutonTop").classList.add("hide-bouton");
     }
     //eventlister of boutonTop
-    document.getElementById('boutonTop').addEventListener('click',()=>{
-     window.scrollTo({
+    document.getElementById("boutonTop").addEventListener("click", () => {
+      window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: "smooth"
       });
-    })
+    });
   }
 
   //**********************Pierre SECTION************************************
