@@ -1,3 +1,6 @@
+body{
+  font-family: "Open Sans" sans-serif;
+}
 header {
   .nav-colored {
     background-color: rgba(0, 0, 0, 0.719);
@@ -91,6 +94,8 @@ header {
     background-color: black;
     border-color: #dc3545;
     padding: 10px 1%;
+    text-align: center;
+    border-radius: 10px;
   }
   #login {
     margin-left: 5%;
