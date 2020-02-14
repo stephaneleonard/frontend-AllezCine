@@ -489,7 +489,13 @@
     }
   });
   /*******************************************footer**************************************/
+  document.getElementById('subscribe').addEventListener('click',()=>{
+    if(!document.getElementById('nav-search-footer').value)
+      alert('you need to enter your email for subscribe');
+    else
+    document.getElementById('subscribe').href = "newsletter.html" ;
 
+  })
   const footerMovies = async function() {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/now_playing?api_key=1f1554fb32330b88285a9c7f0ed8c124&language=en-US&page=1"
