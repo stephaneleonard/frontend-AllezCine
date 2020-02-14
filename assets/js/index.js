@@ -107,11 +107,11 @@
     const arr = await data.results.slice(0,3);
     console.log(arr)
     document.getElementById('car-1').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${`https://image.tmdb.org/t/p/w500/${arr[0].backdrop_path}`})`;
+    url(${`https://image.tmdb.org/t/p/original/${arr[0].backdrop_path}`})`;
     document.getElementById('car-2').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${`https://image.tmdb.org/t/p/w500/${arr[1].backdrop_path}`})`;
+    url(${`https://image.tmdb.org/t/p/original/${arr[1].backdrop_path}`})`;
     document.getElementById('car-3').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(${`https://image.tmdb.org/t/p/w500/${arr[2].backdrop_path}`})`;
+    url(${`https://image.tmdb.org/t/p/original/${arr[2].backdrop_path}`})`;
 
   }
   displayJumboImages();

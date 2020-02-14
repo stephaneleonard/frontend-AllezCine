@@ -52,23 +52,23 @@ header {
     #car-1 {
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../img/hero.jpg);
-      background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
     }
     #car-2 {
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../img/hero2.jpg);
+      // background-size: cover;
+      background-position: center center;
       background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
     }
     #car-3 {
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url(../img/hero.jpg);
-      background-repeat: no-repeat;
       background-size: cover;
-      background-position: center;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
   }
   #login-bar {
@@ -89,7 +89,7 @@ header {
     line-height: 2px;
     color: white;
     background-color: black;
-    border-color: #DC3545;
+    border-color: #dc3545;
     padding: 10px 1%;
   }
   #login {
